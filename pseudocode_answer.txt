@@ -1,0 +1,30 @@
+1. Programmers use pseudocode to develop algorithms without using any particular laguange's syntax.
+2. Pseudocode will not run on a computer
+
+Programming assignment
+
+1. 
+FUNCTION isGreater(num1,num2)
+   IF num1 is GREATHER THAN num2 THEN
+       PRINT num1
+   ELSE IF num1 is LESS THAN num2 THEN
+       PRINT num2
+   END IF
+END FUNCTION
+
+2.
+FUNCTION countToHundred()
+   FOR every number from 0 to 100
+     PRINT number
+   END FOR LOOP
+END FUNCTION
+
+3.
+FUNCTION searchPhonebook(entry,phonebook)
+   FILTER phonebook for items that match entry
+   END FILTER
+END FUNCTION
+
+4.function searchPhonebook(entry, phonebook){
+    phonebook.filter(item => item === entry)
+}

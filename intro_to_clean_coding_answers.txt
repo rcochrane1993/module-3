@@ -1,0 +1,116 @@
+1. Clean coding is the practice of organizing your code so that is both easy to read and easy to edit/maintain.
+2.  Another industry that heavily relies on computers is the financial services sector. If a similar incident that happened to toyota happened to a company like Bank of America, millions of people could lose data on their entire life savings. business who have account with bank of america could end up losing all of their capital and go out of business.
+3. FUNCTION do(x, y)               // Creating a new function
+ IF y = "F" THEN               // Check if y is equal "F"
+ SET z to (x-32) * (5/9)       // Formula to convert degrees fahrenheit to celsius
+ PRINT z                       // Print result
+ ELSE IF y = "C" THEN          // If y not equal to "F", check if equal to "C"
+ SET z to x * 1.8000 + 32.00   // Formula to convert degrees celsius to fahrenheit
+ PRINT z                       // Print result
+ END IF
+END FUNCTION
+
+A: the function does not have clean code due to the lack of clarity on what the variablse are. I would also fix the indentation of the nesting to read easier. refactor to
+
+FUNCTION convertDegrees(x,y)
+   IF y = "F" THEN
+       SET result to (x-32) * (5/9)
+       PRINT result
+   ELSE IF y = "C" THEN
+       PRINT result
+   END IF
+END FUCNTION
+4. 
+FUNCTION calcPercent(sum, total)
+    IF NOT(total = 0) THEN
+        SET percentage to sum / total * 100
+    ELSE
+        PRINT "Sorry, cannot divide by 0"
+   END IF
+
+ PRINT percentage
+END FUNCTION
+A: This looks like clean code to me, naming looks good, nesting looks good, doesn't seem over engineered or that any function does more than one thing.
+
+5.
+A.
+FUNCTION checkOut(subTotal, discountRate, paymentType)
+   SET paymentDue = (subTotal * discountRate) + (subTotal * tax)
+   PRINT "Your total due is: " + paymentDue
+   CALL getPayment RETURNING amount
+   IF paymentType = 'CASH' THEN
+       
+       PRINT "Change due: " + amount - paymentDue
+   ELSE IF paymentType = 'CREDIT CARD' THEN
+       PRINT "Your credit card has been charged: " + paymentDue
+   END IF
+END FUNCTION
+
+B.
+FUNCTION checkoutBook(book, guest)
+    IF NOT guest.accountActive OR guest.hasOverdueBooks OR guest.outstandingFees > 0 THEN
+	PRINT "Unable to check out book."
+    ELSE 
+	APPEND boot to guest.books
+	SET book.status to  "Checked Out"
+	PRINT "Your books have been issued"
+    END IF
+END FUNCTION
+
+C.
+CLASS BankAccount
+
+ FUNCTION displayBalance
+    PRINT balance
+ END FUNCTION
+
+ FUNCTION editBalance(amount, accountAction)
+    IF accountAction = "deposit" THEN
+	SET balance = balance + amount
+    ELSE IF accountAction = "withdraw" AND balance < amount THEN
+	PRINT "insufficient funds"
+    ELSE IF accountAction = "withdraw" AND balance > amount THEN
+	SET balance = balance -amount
+    END IF
+END FUNCTION
+
+ FUNCTION creditCardOffer
+     IF NOT(customer.hasCreditCard) THEN
+         CALL offerCreditCard
+     END
+ END FUNCTION
+
+ FUNCTION checkStatus
+     IF NOT(customer.hasCheckingAccount) THEN
+         CALL offerCheckingAccount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+
+6. 
+function checkPerfectSquare(arr){
+  let sum = 0;
+  for (let i=0; i < arr.length; i++){
+    sum += arr[i]
+  }
+  return sum % Math.sqrt(sum) === 0 ? Math.sqrt(sum) : sum
+}
+
+7.
+function checkForDupes(arr){
+  var counts = [];
+  for(let i=0; i <= arr.length; i++){
+    if(counts[arr[i]]===undefined){
+      counts[arr[i]] = 1;
+    } else {
+      return true
+    }
+  }
+  return false
+}

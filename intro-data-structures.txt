@@ -1,0 +1,37 @@
+1.
+ a. var line =["Vivian","Ava","Josh","Patrick", "Mike"]
+
+B.
+ function addPerson(arr){
+  arr.push("Mary")
+  return arr
+}
+
+C.
+ function searchLine(arr){
+  return arr.indexOf("Josh")
+}
+
+D.
+ function checkSearch(arr){
+  return arr.includes("Emily") ? arr.indexOf("emily") : console.log("Not in Line")
+}
+
+E.
+ function cutLine(arr){
+  var lineIndex = arr.indexOf("Ava")
+  arr.splice(lineIndex,0,"Melissa")
+  return arr
+}
+
+F.
+ function leaveLine(arr){
+  var index= arr.indexOf("Patrick")
+  arr.splice(index,1)
+  return arr
+}
+ 
+
+2. You could model the standings/remaining teams of a professional sports team.
+
+3. you could manipulate the array to change the order as standings change and then remove teams once they are eliminated in playoffs.

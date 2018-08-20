@@ -1,0 +1,70 @@
+1. Making Coffee
+
+IF coffee maker contains no coffee beans OR water THEN
+	Fill coffee maker with coffee beans AND water
+
+ELSE IF coffee maker contains coffee beans but not water THEN
+	Fill coffee maker with water
+
+ELSE IF coffee maker contains water but not beans THEN
+	Fill cofee maker with coffee beans
+
+ELSE IF no coffee filter present THEN
+	Add coffee filter
+
+ELSE
+	INIT coffee maker to brew coffee
+
+END IF
+
+
+Washing dishes
+REPEAT
+	WHILE dirty dishes in sink AND dishwasher not full
+		rinse dish and place in dishwasher
+	END WHILE
+	
+	IF dishwasher contains detergent THEN
+		run dishwasher
+	ELSE
+		fill detergent then run dishwasher
+
+UNTIL sink contains no dirty dishes
+
+
+Making a margarita
+
+IF no tequila present in shaker THEN
+	add 1.5oz of tequila
+END IF
+
+IF no triple sec present in shaker THEN
+	add .75oz of triple sec
+END IF
+
+IF no fresh lime juice present in shaker THEN
+	add .75oz of fresh lime juice
+END IF
+
+IF no ice present in shaker THEN
+	add ice
+END IF
+
+Seal shaker and shake for 30 seconds
+Strain into glass over ice
+
+
+2. UPS's VOLCANO (Volume,Location and Aircraft Network Optimiser) alogrithm which was developed jointly with MIT
+is used to plan for three different groups within UPS(4-6months,2-10 years,peak season between thanksgiving and christmas)
+to allocate the resources at the hands of its fleet of aircraft in america. Match.com's algorithm for finding suitable
+partners made them famous, called "synapse" the algorithm uses a variety of factors based on the users information to match them with other like-minded
+individuals who might be compatible, and since match has led to more dates, and relationships than any other site it must work fairly well.
+Ford's assmebly line to create the model-T used a simple algorithm and division of tasks to revolutionize the way products were assembled, while not
+a tech algorithm, the impact of this type of thinking was monumental.
+
+3. I think what constitutes a good algorithm is efficiency. How can we accmomplish the most amount of work in the shortest amount of time, without comprimising
+quality. This avoids unecessary steps, and divides the task into manageable sub-tasks to be completed quickly and efficiently.
+
+
+
+		

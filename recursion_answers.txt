@@ -1,0 +1,30 @@
+1. Recursion is a technique that has a procedure call itself over and over again moving towards a "base case"
+which causes the algorithm to end. Recursion can be simpler to implement, however can cause performance issues
+due to the repeated number of calculations. Iteration is the utilization of a loop to repeat a process, and 
+can be a bit more diffucult to implement, however typically is more efficient than recursion.
+
+2. Factorial of a number
+   Greatest common Divisor
+   recursive binary search
+   reversing a string
+   mergesort
+   quicksort
+
+3. recursion should be used when iteration would be to complex to implement, or if using a small data set where
+not many calculations would be necessary. fibonnacci would be an example where iteration may be a better option,
+while finding the factorial of a number might be a better done as a recursion algorithm
+
+4. for the factorial algorithms, the two are similar in that an error is created if the number is less than 0,
+and they both store the previous factorial to continue the operation, however the recursive algorithm does not
+require parameters for the function to end, it simply calculates the factorial of the new number plus the previous numbers factorials
+until the number reaches 1. Where as in the iterative function the correct parameter is needed in the for loop to ensure the loop doesn't go on forever.
+
+the difference between the maximum algorithms is that the recursive algorithm has to go through the data set twice in order to check if the current maximum is 
+larger than the maximum of all of the smaller sets of remaining numbers, while the iterative algorithm simple checks if the next number in the set is larger, than saves it
+if it is, which makes it a much more effecient algorithm
+
+the recursive version of the fibonacci algorithm has to re-calculate all of the previous fibonacci numbers
+which causes and exponential growth rate and could cause performance issues, while the iterative version stores two
+numbers, the previous number and the current number, which causes the loop to make much less calculations than the recursive version.
+
+5.

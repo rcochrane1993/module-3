@@ -2,7 +2,7 @@
 This is done by calculating how quickly the time to run the program grows relative to the amount of input fed 
 into the program.
 
-2. Runtime can sometimes refer the the physical time it taeks for a program to execute, but is mostly used interchangibly
+2. Runtime can sometimes refer the the physical time it takes for a program to execute, but is mostly used interchangibly
 with time complexity.
 
 3. Runtime is calculated by adding up adding up how many instructions the algorithm will execute as a function of the size of its 
@@ -14,6 +14,7 @@ input, then simplifying to the largest term and dopping the constants.
    log-linear growth rate 0(n log n)
    quadratic growth rate 0(n^2)
    cubic growth rate 0(n^3)
+   exponential growth rate 0(2^n)
 
 5. constant growth rate- Consider a principal of a school doing the morning announcements, regardless of the number of students
 in the school, the announcements are only read out one time.
@@ -22,6 +23,6 @@ in the school, the announcements are only read out one time.
 
 7. quadratic growth 0(n^2)
 
-8 log-linear growth 0(n log n)
+8 exponential growth rate 0(2^n)
 
 9. number 6 has the most time efficient alogrithm

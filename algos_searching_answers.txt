@@ -1,0 +1,47 @@
+1. searching through a deck of cars for the ace of spades would be an example of linear search
+2. searching through a library for a book would be an exmaple of binary search
+3. 7 iterations
+4. 3 iterations
+5. In an unsorted collection of 1 million items you would have to use linear search, since the data is unsorted, even though
+we know the number of items in the collection and could find the middle index, we wouldn't be able to rule out one half of data 
+or the other, so unfortunately we would have to iterate over each individual item.
+6. in a sorted collection of a million items i would use a binary serach algorithm. Since the data is sorted and we know the amount
+of items in the collection, we can find the middle index and rule out half of the data, continuing until we find our desired item
+
+
+CODE
+
+1.
+
+function binarySearch(collection,value){
+  let low = 0;
+  let high= collection.length-1;
+  let mid= Math.floor((low+high)/2);
+
+  while (low <= high){
+    mid = (low + high) /2;
+
+    if (collection[Math.floor(mid)] > value){
+      high = mid - 1;
+    } else if ( collection[mid] < value){
+      low = mid + 1
+    } else {
+      return mid
+    }
+  } 
+  return "not found"
+}
+
+2.
+
+function searchTank (tank,target){
+  var result = null, value;
+  for(var i=0; i<tank.length;i++){
+    value = tank[i];
+    if(value === target){
+      result = i;
+      break;
+    }
+  }
+  return result
+}

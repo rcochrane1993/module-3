@@ -28,3 +28,29 @@ which causes and exponential growth rate and could cause performance issues, whi
 numbers, the previous number and the current number, which causes the loop to make much less calculations than the recursive version.
 
 5.
+
+function countTotal(array){
+  var total = 0;
+  for(var i=0; i<array.length; i++){
+    if(typeof array[i] === "object"){
+      total += countTotal(array[i]);
+    } else {
+      total++;
+    }
+  } return total;
+}
+
+6.
+
+function isPalindrome(word){
+  var middleLetters = word.slice(1,-1)
+  if (word.length < 2) {
+    return "is a palindrome"
+  } else if (word[0] == word[word.length-1]){
+    return isPalindrome(middleLetters)
+  } else{
+    return "not a palindrome"
+  }
+}
+
+7. This behavior exhibits porperties of recursion because if the person clicks on "did you mean: recusion" the search gets called again "recursively".

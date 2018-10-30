@@ -1,0 +1,46 @@
+1.
+  FUNCTION bubbleSort(collection)
+ FUNCTION bubbleSort(collection)
+   REPEAT
+     SET swapped to false
+
+     FOR i = FIRST INDEX of collection to LAST INDEX of collection - 1
+       IF collection[i] > collection[i + 1] THEN
+         SET tmp to collection[i]
+         SET collection[i] to collection[i + 1]
+         SET collection[i + 1] to tmp
+         SET swapped to true
+       END IF
+     END FOR
+   UNTIL swapped is FALSE
+
+   RETURN collection
+ END FUNCTION
+
+2. FUNCTION quickSort (collection)
+      SET pvtPoint to LAST INDEX of collection
+      LET highVals equal an empty array
+      LET lowVals equal an empty array
+      
+      FOR i = FIRST INDEX of collection to LAST INDEX of collection -1
+         IF collection[i] > pvtPoint THEN
+            PUSH collection[i] to highVals
+         ELSE
+	    PUSH collection[i] to lowVals
+      END FOR
+    RETURN  quickSort(lowVals) CONCAT pvtPoint CONCAT quickSort(highVals)
+    
+
+
+
+3. Merge sort and Quick Sort are much more efficient than the others because they don't have nested for 
+loops in their functions which drastically decreases efficiency.
+
+4. a bucket sort breaks down data sets into a chosen number of "buckets" then each individual bucket is 
+sorted with a preferred method, then joined back together using a merge sort. Ideally bucket sorts are 
+used on really large data sets.
+
+
+
+
+

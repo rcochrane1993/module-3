@@ -1,0 +1,108 @@
+1. The main fdifference between stacks and queues is that queue are FIFO(first in first out) and stacks
+are LIFO(last in first out)
+
+2.the similaritites between stacks and queues is that in either data structure, new objects are added
+from only one side of the queue or stack and then removed from only one side, even tho stacks have data removoed from th
+from the "top" while queues have data removed from the "bottom" or "back" of the queue.
+
+3. I would use two stacks to create the functions. When the UNDO function was called i would remove the word and add
+it to another stack and when the word needs to be put back i would pop it from that stack and return it to the first stack.
+
+
+4. 
+class Stack{
+  constructor(){
+    this.storage = [];
+  }
+
+  push(data){
+    this.storage.push(data);
+  }
+
+  pop(){
+    return this.storage.pop()
+  }
+
+  showContents(){
+    console.log(this.storage);
+  }
+}
+
+
+ var str = "bloc!"
+ let length = str.length;
+ let stack = new Stack();
+ for (i=0;i<length; i++){
+   stack.push(str.charAt(i));
+   stack.showContents();
+}
+
+str = "";
+for(i = 0; i < length; i++){
+  str += stack.pop();
+  stack.showContents();
+}
+
+console.log(str);
+
+
+
+5.
+
+class Queue{
+  constructor(){
+    this.storage = [];
+  }
+
+  queue(data){
+    this.storage.push(data);
+  }
+
+  dequeue(){
+    return this.storage.shift()
+  }
+
+  pop(){
+    let length = this.storage.length; 
+    for (let i=0;i < length-1 ;i++){
+      let save = this.storage[0];
+      this.dequeue();
+      this.queue(save);
+    }
+    this.dequeue();
+  }
+
+  showContents(){
+    console.log(this.storage);
+  }
+}
+
+var newQueue = new Queue;
+
+newQueue.queue('first');
+newQueue.queue('second');
+newQueue.queue('third');
+newQueue.queue('fourth');
+newQueue.pop();
+
+console.log(newQueue.storage)
+
+
+
+6.
+
+class Queue{
+  constructor(){
+    this.storage = [];
+  }
+
+  queue(data){
+    this.storage.push(data);
+  }
+
+  dequeue(){
+    return this.storage.shift()
+  }
+}
+
+

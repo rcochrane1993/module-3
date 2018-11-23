@@ -1,0 +1,93 @@
+1. a hash table is a collection of data that is stored by a unique identifier or "hashcode"
+2.Hashing is the process of converting arbitrary data into a fixed-length hash code with a hashing function
+3. A hash table stores data by a using a unique "hash code" to determine the true index of the item and placing it 
+in the array at the correct index.
+
+4. hash tables are intended for similar types of data, while objects can contain muitple different data types.
+
+5.
+a. hash table
+b. object
+c. object
+d. hash table
+e. hash table
+
+6.
+
+let hash = require('string-hash')
+
+class firstHash {
+  constructor() {
+    this.list = []
+  }
+
+  get(x) {
+    return this.list[hash(x)]
+  }
+
+  set(x, y) {
+    this.list[hash(x)] = y
+  }
+}
+
+let phoneSearch = new firstHash()
+phoneSearch.set('Rob Cochrane',6317410828)
+phoneSearch.set('Tim Law',3075468989)
+phoneSearch.set('Matt Smith',5162893564)
+
+console.log(phoneSearch.get('Rob Cochrane'))
+
+7.
+let hash = require('string-hash')
+
+class inventoryHash {
+  constructor() {
+    this.list = []
+  }
+
+  get(x) {
+    return this.list[hash(x)]
+  }
+
+  set(x, y) {
+    this.list[hash(x)] = y
+  }
+}
+
+
+let inventory = new inventoryHash()
+var bananas = {name:"banana", quantity:9}
+inventory.set(bananas.name,bananas)
+console.log(inventory.get(bananas.name))
+
+
+
+8.
+let hash = require('string-hash')
+
+class newspaperHash {
+  constructor() {
+    this.list = []
+  }
+
+  get(name,date) {
+    return this.list[hash(name+date)]
+  }
+
+  set(paper) {
+    this.list[hash(paper.name+paper.date)] = paper
+  }
+}
+
+let paper = {name:'Newsday',date:'10/17/20011'}
+let search = new newspaperHash()
+search.set(paper)
+search.get(paper.name,paper.date)
+
+console.log(search.get(paper.name,paper.date))
+
+
+
+
+
+

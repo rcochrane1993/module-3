@@ -9,82 +9,106 @@ in the array at the correct index.
 a. hash table
 b. object
 c. object
-d. hash table
-e. hash table
+d. object
+e. object
 
 6.
-
-let hash = require('string-hash')
-
-class firstHash {
+class CustomerDirectory {
   constructor() {
-    this.list = []
+    this.list = {}
+    this.size = 500
   }
 
-  get(x) {
-    return this.list[hash(x)]
+  customerLookup(number) {
+    return this.list[this.hash(number)]
   }
 
-  set(x, y) {
-    this.list[hash(x)] = y
+  addCustomer(person) {
+    this.list[this.hash(person.number)]= person
+  }
+
+  hash(text){
+    let results = 0;
+    for(let i = 0; i < text.length; i++){
+      results += text.charCodeAt(i);
+    }
+    return results%500;
   }
 }
 
-let phoneSearch = new firstHash()
-phoneSearch.set('Rob Cochrane',6317410828)
-phoneSearch.set('Tim Law',3075468989)
-phoneSearch.set('Matt Smith',5162893564)
+let directory = new CustomerDirectory()
+directory.addCustomer({name: "Rob Cochrane",number:'6317410828', address: '32 foster blvd.'} )
+directory.addCustomer({name:'Tim Law',number:'3075468989', address:'123 newfeild rd'})
+directory.addCustomer({name:'Matt Smith',number:'5162893564', address: '456 memory ln.'})
 
-console.log(phoneSearch.get('Rob Cochrane'))
+console.log(directory.customerLookup('6317410828'))
 
 7.
-let hash = require('string-hash')
-
 class inventoryHash {
   constructor() {
-    this.list = []
+    this.list = {}
+    this.size = 500
   }
 
-  get(x) {
-    return this.list[hash(x)]
+  itemLookup(item) {
+    return this.list[this.hash(item)]
   }
 
-  set(x, y) {
-    this.list[hash(x)] = y
+  addItem(item) {
+    this.list[this.hash(item.item)] = item
   }
+
+  hash(text){
+    let results = 0;
+    for(let i=0; i<text.length; i++){
+      results += text.charCodeAt(i);
+    }
+    return results%500
+  }
+
+ 
 }
 
 
 let inventory = new inventoryHash()
-var bananas = {name:"banana", quantity:9}
-inventory.set(bananas.name,bananas)
-console.log(inventory.get(bananas.name))
+inventory.addItem({item:'bananas',quantity:9})
+inventory.addItem({item:'apples',quantity:4})
+inventory.addItem({item:'oranges',quantity:13})
 
+
+
+console.log(inventory.itemLookup('bananas'))
 
 
 8.
-let hash = require('string-hash')
-
 class newspaperHash {
   constructor() {
-    this.list = []
+    this.list = {};
+    this.size = 500
   }
 
-  get(name,date) {
-    return this.list[hash(name+date)]
-  }
+    searchByDate(paper,date){
+      return this.list[this.hash(paper+date)] 
+    }
 
-  set(paper) {
-    this.list[hash(paper.name+paper.date)] = paper
+    addPublication(paper) {
+      this.list[this.hash(paper.name+paper.date)] = paper
+    }
+    hash(text){
+      let results = 0;
+      for(let i = 0; i < text.length; i++){
+        results += text.charCodeAt(i);
+      }
+      return results%500;
   }
 }
 
-let paper = {name:'Newsday',date:'10/17/20011'}
-let search = new newspaperHash()
-search.set(paper)
-search.get(paper.name,paper.date)
+let newsRecords = new newspaperHash;
+newsRecords.addPublication({name:'Newsday', date:'10/17/1979', articles:{}})
+newsRecords.addPublication({name:'New York Times', date:'9/12/1969',articles:{}})
+newsRecords.addPublication({name:'The New York Post', date:'4/6/1987', articles:{}})
 
-console.log(search.get(paper.name,paper.date))
+console.log(newsRecords.searchByDate('Newsday','10/17/1979'))
 
 
 

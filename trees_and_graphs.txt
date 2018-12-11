@@ -14,56 +14,85 @@ next level down in the tree.
 5. An undirected,a-cyclic, unweighted graph is a graph that does not specify direction of travel, cannot form
 a closed loop, and there is no assigned "travel-cost" for going between nodes.
 
-6.a binary search tree could be an undirected,a-cyclic,unweighted graph
+6.a binary search tree could be an undirected,a-cyclic,weighted graph
 
 
 
 
 PROGRAMMING QUESTIONS
+1&2
+class Tree{
+  constructor(){
+    this.root = null;
+    this.count = 0;
+    
+  }
+    
+    addNode(node,newNode){
+      if (newNode.value > node.value){
+        if(node.right !== null){
+          this.addNode(node.right,newNode)
+        } else {
+          node.right = newNode
+        }
+      } else if (newNode.value < node.value){
+        if(node.left){
+          this.addNode(node.left,newNode)
+        } else {
+          node.left = newNode
+        }
+      }
+    }
 
-1.
-function search(node,value,){
-  if(node===null){
+    createNode(value){
+      let node = {value: value, right:null,left:null}
+      if (this.root ===null){
+        this.root = node
+      } else {
+        this.addNode(this.root,node)
+      }
+  }
+
+    
+    search(item){
+      let node = this.root
+      while (node){
+      if (node.value === item){
+        return true
+      } else if(item < node.value){
+        node = node.left
+      }else if (item > node.value){
+        node = node.right
+      }  
+    }
     return false
   }
-  if(value<node.value){
-    return search(node.left,value)
+   
+   
+  distanceToRoot(node){
+    this.count++
+    if(node===null){
+      return false
+    }
+    if(node < this.root.value){
+     return this.distanceToRoot(node.left)
+    }
+    if (node > this.root.value){
+      return this.distanceToRoot(node.right)
+    }  
+    return this.count 
   }
-  if (value > node.value){
-    return search(node.right,value)
-  }  
-  return true
+
 }
 
+var newTree = new Tree;
+newTree.createNode(8)
+newTree.createNode(10)
+newTree.createNode(3)
+newTree.createNode(2)
+newTree.createNode(1)
+newTree.createNode(5)
+newTree.createNode(9)
+newTree.createNode(14)
 
-let three = {value:3,left:null,right:null}
-let ten = {value:10,left:null,right:null}
-let eight={value:8,left:three,right:ten}
-
-console.log(search(eight,11))
-
-2. 
-
-function search(node,value,count){
-  count++
-  if(node===null){
-    return false
-  }
-  if(value<node.value){
-    return search(node.left,value,count)
-  }
-  if (value > node.value){
-    return search(node.right,value,count)
-  }  
-  return count -1
-}
-
-
-let fourteen={value:14,right:null,left:null}
-let four={value:4,right:null,left:null}
-let six ={value:6,left:four,right:null}
-let three = {value:3,left:null,right:six}
-let ten = {value:10,left:null,right:fourteen}
-let eight={value:8,left:three,right:ten}
-
-console.log(search(eight,4,0)+search(eight,14,0))
+console.log(newTree.distanceToRoot(10))

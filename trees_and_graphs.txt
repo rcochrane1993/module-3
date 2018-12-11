@@ -14,7 +14,7 @@ next level down in the tree.
 5. An undirected,a-cyclic, unweighted graph is a graph that does not specify direction of travel, cannot form
 a closed loop, and there is no assigned "travel-cost" for going between nodes.
 
-6.a binary search tree could be an undirected,a-cyclic,weighted graph
+6.a binary search tree could be an undirected,a-cyclic,unweighted graph
 
 
 

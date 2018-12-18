@@ -24,8 +24,7 @@ PROGRAMMING QUESTIONS
 class Tree{
   constructor(){
     this.root = null;
-    this.count = 0;
-    
+    this.count= 0;
   }
     
     addNode(node,newNode){
@@ -67,21 +66,48 @@ class Tree{
     }
     return false
   }
+
+  findLCA(v1, v2, node){
+    if(!node){
+      node = this.root;
+    }
+    if(v1<node.value && v2<node.value){
+      return this.findLCA(v1,v2,node.left)
+    }
+    if(v1>node.value && v2 >node.value){
+      return this.findLCA(v1,v2,node.right)
+    }
+    return node
+    
+  }
    
    
-  distanceToRoot(node){
-    this.count++
-    if(node===null){
-      return false
+  distanceToNode(value, node){
+    if(!node){
+      node = this.root;
     }
-    if(node < this.root.value){
-     return this.distanceToRoot(node.left)
+    
+    if(value < node.value && node.left){
+      this.count++;
+      return this.distanceToNode(value, node.left)
     }
-    if (node > this.root.value){
-      return this.distanceToRoot(node.right)
+    if (value > node.value && node.right){
+      this.count++;
+      return this.distanceToNode(value, node.right)
     }  
     return this.count 
   }
+
+  distance(n1,n2){
+    let lca = this.findLCA(n1,n2,this.root)
+    //console.log(lca);
+    let d1 = this.distanceToNode(n1,lca)
+    this.count = 0;
+    let d2 = this.distanceToNode(n2, lca)
+
+    return d1 + d2;
+  }
+
 
 }
 
@@ -89,10 +115,12 @@ var newTree = new Tree;
 newTree.createNode(8)
 newTree.createNode(10)
 newTree.createNode(3)
-newTree.createNode(2)
+newTree.createNode(6)
 newTree.createNode(1)
-newTree.createNode(5)
+newTree.createNode(4)
 newTree.createNode(9)
-newTree.createNode(14)
+
+
+console.log(newTree.distance(4,1))
 
 console.log(newTree.distanceToRoot(10))

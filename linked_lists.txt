@@ -1,0 +1,101 @@
+1.the pros of using a linked list are that, since we create each node in the list, the list never contains 
+empty placeholders. Each node also does not have to be stored next to the previous node, making it easier
+to store since it can take up any available memory space. However, since the nodes may exist anywhere in storage,
+it can sometimes be inefficient to access elements in the list since each item may only be accessed by a pointer
+from the previous node.
+
+2. A real life exmaple of a linked list would be a treasure hunt game. Participants are given a clue to start(head)
+and the clue leads to a series of more clues which can only be found from the pointer in the previous clue until participants
+reach the "treasure"
+
+3.
+
+FUNCTION push(element)
+CREATE node
+SET node.value TO element
+SET node.next TO null
+
+IF the head node does not exist
+ THEN SET head to node
+ELSE IF head.next does not exist
+ SET current to head
+ SET current.next to node
+ELSE 
+ SET current to last node in list
+ SET current.next to node
+ 
+END IF
+END FUNCTION
+
+the bug that was in the function could continuously add nodes to the head instead of adding them to
+the end of the list. A functional implementation can be found down below in my programming solutions
+
+PROGRAMMING QUESTIONS
+
+2&3
+
+class LinkedList {
+  constructor(value) {
+    this.head = null;
+    this.node = null;
+    this.tail =null;
+    this.createNode(value);
+  }
+
+addNode(tail,newNode){
+    this.tail.next = newNode;
+    this.tail = newNode
+  }
+
+  createNode(value) {
+    let newNode = {value, next: null};
+    if (this.head === null){
+      this.head = newNode
+    } else if (this.node ===null) {
+     this.node = newNode
+     this.head.next = newNode
+    } else if(this.tail ===null) {
+      this.node.next = newNode
+      this.tail = newNode
+    } else {
+      this.addNode(this.tail, newNode)
+    }
+    return this
+  }
+
+  removeDuplicates(){
+    let node = this.head
+    while(node){
+    let next = node.next
+    while(next){
+      if (node.value === next.value){
+        node.next = next.next
+      }
+    next = next.next
+    } 
+    node = node.next
+    }
+  }
+
+  reverseList(head) {
+  if (!head || !head.next) {
+    return head;
+  }
+  let tmp = this.reverseList(head.next);
+  head.next.next = head;
+  head.next = undefined;
+  return tmp;
+  }
+}
+
+var list = new LinkedList('first')
+  .createNode('second')
+  .createNode('third')
+  .createNode('fourth');
+
+
+console.log(list.reverseList(list.head))
+
+here is a link to the repl if it makes it easier 
+https://repl.it/@RobbieCochrane/SpiffyAbsolutePerl
+

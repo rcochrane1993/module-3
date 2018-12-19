@@ -75,6 +75,7 @@ addNode(tail,newNode){
     } 
     node = node.next
     }
+    return this
   }
 
   reverseList(head) {
@@ -88,14 +89,14 @@ addNode(tail,newNode){
   }
 }
 
-var list = new LinkedList('first')
-  .createNode('second')
-  .createNode('third')
-  .createNode('fourth');
+var list = new LinkedList('1')
+  .createNode('1')
+  .createNode('2')
+  .createNode('3')
+  .createNode('1')
+  .createNode('1');
 
 
-console.log(list.reverseList(list.head))
-
-here is a link to the repl if it makes it easier 
+console.log(list.reverseList(list.head)) 
 https://repl.it/@RobbieCochrane/SpiffyAbsolutePerl
 

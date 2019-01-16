@@ -64,18 +64,21 @@ addNode(tail,newNode){
   }
 
   removeDuplicates(){
-    let node = this.head
-    while(node){
-    let next = node.next
-    while(next){
-      if (node.value === next.value){
-        node.next = next.next
+    let p1 = this.head;
+    let p2 = p1.next;
+    var nodes = {};
+    nodes[p1.value] = true;
+    while(p2){
+      var value = p2.value;
+      if(nodes[value]){
+        p1.next = p2.next;
+      } else {
+        nodes[value] = true;
+        p1 = p2;
       }
-    next = next.next
-    } 
-    node = node.next
+      p2=p2.next
     }
-    return this
+    return this.head
   }
 
   reverseList(head) {
